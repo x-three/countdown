@@ -1,0 +1,40 @@
+{
+    "name": "react-webpack",
+    "version": "0.1.0",
+    "description": "",
+    "author": "Vladimir Volkov",
+    "license": "ISC",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack-dev-server --mode development",
+        "build": "webpack --mode production --hide-modules --optimize-minimize"
+    },
+    "dependencies": {
+        "prop-types": "^15.7.2",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-hot-loader": "^4.3.11"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.1.0",
+        "@babel/core": "^7.1.0",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-react": "^7.0.0",
+        "@types/jquery": "^3.3.30",
+        "babel-loader": "^8.0.2",
+        "css-loader": "^1.0.0",
+        "jquery": "^3.4.1",
+        "less": "^3.9.0",
+        "less-loader": "^5.0.0",
+        "less-plugin-functions": "^1.0.0",
+        "mini-css-extract-plugin": "^0.7.0",
+        "style-loader": "^0.23.0",
+        "ts-loader": "^6.0.4",
+        "typescript": "^3.5.2",
+        "webpack": "^4.19.1",
+        "webpack-cli": "^3.1.1",
+        "webpack-dev-server": "^3.1.8"
+    }
+}

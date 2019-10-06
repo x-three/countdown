@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    background: transparent;
+    vertical-align: baseline;
+    font: inherit;
+    font-size: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    line-height: normal;
+    cursor: default;
+}
+
+:focus {
+    outline: none;
+}
+
+/* Table ******************************************************************************************************************************************************/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+th {
+    text-align: left;
+}
+
+th, td {
+    vertical-align: top;
+}
+
+/* List *******************************************************************************************************************************************************/
+ol, ul, menu {
+    list-style: none outside none;
+}
+
+li {
+    display: block;
+}
+
+/* Text *******************************************************************************************************************************************************/
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+big {
+    font-size: larger;
+}
+
+small {
+    font-size: smaller;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+i, em {
+    font-style: italic;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+q:before, q:after,
+blockquote:before, blockquote:after {
+    content: none;
+}
+
+sup, sub {
+    position: relative;
+    font-size: 0.58em;
+    line-height: 1em;
+}
+
+sup {
+    top: -0.6em;
+}
+
+sub {
+    top: 0.6em;
+}
+
+address, cite {
+    font-style: normal;
+}
+
+/* Form *******************************************************************************************************************************************************/
+button {
+    cursor: pointer;
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+}
+
+input[type="file"] {
+    margin: 0;
+}
+
+select {
+    border: 1px solid;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    vertical-align: text-top;
+    position: relative;
+    top: -0.2em;
+    margin: 3px 3px 3px 0;
+}
+
+/* Kludge  ****************************************************************************************************************************************************/
+*+html img {
+    -ms-interpolation-mode: bicubic;
+}
+
+::-ms-clear {
+    display: none;
+}
+
+button::-moz-focus-inner {
+    padding:0;
+    border:0;
+}
+
+/* Predefined Classes *********************************************************/
+.e-heading {
+    display: block;
+}
+
+ul.st-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none outside none;
+}
+
+ul.st-reset > li {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+.st-nobr {
+    white-space: nowrap;
+}
+
+.st-clear-after::after {
+    content: "";
+    display: block;
+    clear: both;
+}

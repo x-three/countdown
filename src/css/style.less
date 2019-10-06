@@ -1,0 +1,177 @@
+@import "reset.css";
+@import (css) url("https://fonts.googleapis.com/css?family=Exo+2");
+
+@c-dark: #222;
+@c-light: #fff;
+@m: 15px;
+
+
+/**********************************************************************************************************************/
+body {
+    background: @c-dark;
+    color: @c-light;
+}
+
+.c-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+#js-flip-numbers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    > .l-group {
+        display: flex;
+    }
+}
+
+
+/**********************************************************************************************************************/
+.b-flip-number {
+    display: flex;
+    margin: @m*2;
+
+    > li {
+        flex: none;
+
+        + li {
+            margin-left: @m;
+        }
+    }
+}
+
+
+/**********************************************************************************************************************/
+.b-flip-digit {
+    @height: 200px;
+
+    position: relative;
+    z-index: 0;
+    width: 150px;
+    height: @height;
+
+    .e-part {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font: bold @height/@height Arial, sans-serif;
+        text-align: center;
+        text-shadow: @c-dark 4px 4px, @c-dark 4px -4px, @c-dark -4px 4px, @c-dark -4px -4px, @c-dark 4px 0, @c-dark -4px 0;
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: 0;
+            right: 0;
+            border: 3px solid @c-light;
+            background: @c-dark;
+        }
+    }
+
+    .e-part {
+        &.m-top {
+            clip: rect(auto, auto, @height/2, auto);
+
+            &::before {
+                top: 0;
+                bottom: 50%;
+                margin-bottom: -1px;
+                border-radius: 0 0 10px 10px;
+            }
+        }
+
+        &.m-bottom {
+            clip: rect(@height/2, auto, auto, auto);
+
+            &::before {
+                bottom: 0;
+                top: 50%;
+                margin-top: -1px;
+                border-radius: 10px 10px 0 0;
+            }
+        }
+    }
+}
+
+.b-flip-digit {
+    perspective: 500px;
+
+    .e-part {
+        backface-visibility: hidden;
+    }
+
+    .e-part.m-cur {
+        &.m-top {
+            z-index: 1;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            opacity: 0;
+        }
+
+        &.m-top::after {
+            background: linear-gradient(transparent, @c-dark);
+            top: 0;
+            bottom: 50%;
+            margin-bottom: -1px;
+        }
+
+        &.m-bottom::after {
+            background: linear-gradient(@c-dark, transparent);
+            bottom: 0;
+            top: 50%;
+            margin-top: -1px;
+        }
+    }
+}
+
+.b-flip-digit {
+    &.fx-flip-from {
+        .e-part.m-bottom.m-new {
+            transform: rotateX(90deg)
+        }
+    }
+
+    &.fx-flip-active {
+        @t: 0.9s;
+        transition: z-index @t;
+
+        .e-part.m-top.m-cur {
+            transition: transform @t/2 ease-in;
+        }
+
+        .e-part.m-bottom.m-new {
+            transition: transform @t/2 ease-out @t/2;
+        }
+
+        .e-part.m-cur::after {
+            transition: opacity @t;
+        }
+    }
+
+    &.fx-flip {
+        .e-part.m-top.m-cur {
+            transform: rotateX(-90deg);
+        }
+
+        .e-part.m-bottom.m-new {
+            transform: none;
+        }
+
+        .e-part.m-cur::after {
+            opacity: 1;
+        }
+    }
+}
