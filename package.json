@@ -1,9 +1,9 @@
 {
-    "name": "react-webpack",
-    "version": "0.1.0",
+    "name": "countdown",
+    "version": "0.4.2",
     "description": "",
     "author": "Vladimir Volkov",
-    "license": "ISC",
+    "license": "MIT",
     "main": "index.js",
     "scripts": {
         "start": "webpack-dev-server --mode development",
