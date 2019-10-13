@@ -27,22 +27,18 @@ class App extends Component {
 
 
     render() {
-        return this.time.showDays
-            ? <>
+        return <>
+            {this.time.showDays &&
                 <div className="l-group">
                     <FlipNumber value={this.state.days} length={3}/>
-                    <FlipNumber value={this.state.hours} length={2}/>
                 </div>
-                <div className="l-group">
-                    <FlipNumber value={this.state.minutes} length={2}/>
-                    <FlipNumber value={this.state.seconds} length={2}/>
-                </div>
-            </>
-            : <div className="l-group">
+            }
+            <div className="l-group">
                 <FlipNumber value={this.state.hours} length={2}/>
                 <FlipNumber value={this.state.minutes} length={2}/>
                 <FlipNumber value={this.state.seconds} length={2}/>
             </div>
+        </>
     }
 }
 
